@@ -4,7 +4,15 @@ from bancos_dados import Banco_cadastro as BC
 app.secret_key = '123'
 
 def MainLogin():
+    #Desenvolver isso depois
+    if request.method == 'POST':
+        cadastros = BC.main()
+        print(cadastros)
+        session.clear()
+        return redirect(url_for('tela_login'))
+
     return render_template('MainLogin.html')
+
 
 def Tela_cadastro():
     if request.method == 'POST':
@@ -14,11 +22,13 @@ def Tela_cadastro():
 
         session['login'] = login
         session['email'] = email
-        session['Senha'] = senha
-
-        BC.main(nome=session['login'], eml=session['email'], snh=session['Senha'])
+        session['senha'] = senha
+        BC.main()
         
         session.clear()
         return redirect(url_for('tela_cadastro'))
     
     return render_template('Cadastro.html')
+
+def tela_recSenha():
+    return render_template('RecSenha.html')

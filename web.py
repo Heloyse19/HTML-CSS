@@ -3,13 +3,17 @@ import urls as url
 app = Flask(__name__, template_folder='templates')
 app.secret_key = '123'
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/' or '/MainLogin.html', methods=['GET', 'POST'])
 def tela_login():
     return url.MainLogin()
 
 @app.route('/Cadastro.html', methods=['GET', 'POST'])
 def tela_cadastro():
    return url.Tela_cadastro()
+
+@app.route('/RecSenha.html')
+def tela_recSenha():
+    return url.tela_recSenha()
 
 if __name__ == '__main__':
     app.run(debug=True)

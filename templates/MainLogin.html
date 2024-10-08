@@ -7,22 +7,24 @@
     <title>Portal Acadêmico</title>
 </head>
 <body>
-    <div id="login">
-        <div class="caixa">
-            <img src="static\imagens/LOGOlOGIN.png" alt="LOGO">
-            <h1>Login</h1>
-            <div class="email">
-                <input type="email" placeholder="E-mail">
-            </div>
-            <div class="senha">
-                <input type="password" placeholder="Senha">
-            </div>
-            <div class="entrar">
-                <input type="submit" value="Entrar">
-                <p><a href="Cadastro.html" class="link-cadastro">Cadastro</a></p>
-                <p><a href="RecSenha.html">Esqueceu sua senha?</a></p>
+    <form method="POST">
+        <div id="login">
+            <div class="caixa">
+                <img src="static\imagens/LOGOlOGIN.png" alt="LOGO">
+                <h1>Login</h1>
+                <div class="email">
+                    <input type="email" name="email" placeholder="E-mail">
+                </div>
+                <div class="senha">
+                    <input type="password" name="senha" placeholder="Senha">
+                </div>
+                <div class="entrar">
+                    <input type="submit" value="Entrar">
+                    <p><a href="Cadastro.html" class="link-cadastro">Cadastro</a></p>
+                    <p><a href="RecSenha.html">Esqueceu sua senha?</a></p>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </body>
 </html>
