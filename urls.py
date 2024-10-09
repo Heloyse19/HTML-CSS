@@ -6,10 +6,31 @@ app.secret_key = '123'
 def MainLogin():
     #Desenvolver isso depois
     if request.method == 'POST':
+        session['email'] = request.form.get('email')
+        session['senha'] = request.form.get('senha')
         cadastros = BC.main()
-        print(cadastros)
+        
+        if cadastros:
+            login_autorizado = False
+            for dados in cadastros:
+                print(dados['email'], dados['senha'])
+                if dados['email'] == session['email'] and dados['senha'] == session['senha']:
+                    login_autorizado = True
+                    break
+
+            if login_autorizado:
+               return redirect(url_for('tela_teste'))
+            
+            #FAZER ESSA MENSAGEM APARECER E DESAPARECER CASO DE REFRESSH
+            else:
+                session['mensagem'] = 'Senha ou login incorretos'
+        
+        else:
+            print('Login não encontrado')
+
+
         session.clear()
-        return redirect(url_for('tela_login'))
+        return redirect(url_for('tela_login', mensagem=session['mensagem']))
 
     return render_template('MainLogin.html')
 
@@ -32,3 +53,6 @@ def Tela_cadastro():
 
 def tela_recSenha():
     return render_template('RecSenha.html')
+
+def tela_teste():
+    return render_template('Tela_teste.html')

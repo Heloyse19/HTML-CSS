@@ -15,9 +15,9 @@ def registrar(cursor, nm, email, senha):
     inserir = 'INSERT INTO logins (login, email, senha) VALUES (%s, %s, %s)'
     cursor.execute(inserir,(nm, email, senha))
 
-def login(cursor):
+def login(cursor, email):
     cadastros = []
-    cursor.execute('SELECT * FROM logins')
+    cursor.execute(F'SELECT * FROM logins WHERE email = "{email}"')
     info = cursor.fetchall()
     for login in info:
         dict_cadastros = {}
@@ -34,7 +34,7 @@ def main():
         registrar(cursor=cursor, nm=session['login'], email=session['email'], senha=session['senha'])
     
     elif '/' in request.referrer:
-        return login(cursor=cursor)
+        return login(cursor=cursor, email=session['email'])
     else:
         print('Não esta indo para o Login')
     conexao.commit()

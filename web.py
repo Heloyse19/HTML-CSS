@@ -15,5 +15,9 @@ def tela_cadastro():
 def tela_recSenha():
     return url.tela_recSenha()
 
+@app.route('/TelaTeste')
+def tela_teste():
+    return url.tela_teste()
+
 if __name__ == '__main__':
     app.run(debug=True)
