@@ -1,6 +1,4 @@
 import mysql.connector
-from urls import app, session, request
-app.secret_key = '123'
 def banco(hosti, username, senha, banco):
     return mysql.connector.connect(
         host = hosti,
@@ -28,6 +26,9 @@ def login(cursor, email):
 
 
 def main():
+    from routes.imports import request, session, redirect, render_template, url_for, app
+    app.secret_key = '123'
+
     conexao = banco(hosti='localhost', username='root', senha='teste', banco='login_site')
     cursor = conexao.cursor()
     if 'Cadastro.html' in request.referrer:
