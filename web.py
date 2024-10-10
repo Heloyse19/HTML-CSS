@@ -1,11 +1,16 @@
-from flask import Flask, url_for, session, request, redirect, render_template
+from flask import Flask, url_for, session, request, redirect, render_template, jsonify
 from routes import Tela_cadastro, Tela_login, Tela_recSenha, Tela_teste
 app = Flask(__name__, template_folder='templates')
 app.secret_key = '123'
 
-@app.route('/' or '/MainLogin.html', methods=['GET', 'POST'])
+@app.route('/')
 def tela_login():
     return Tela_login.MainLogin()
+
+@app.route('/login', methods=['POST'])
+def Login():
+    return Tela_login.login()
+
 
 @app.route('/Cadastro.html', methods=['GET', 'POST'])
 def tela_cadastro():
@@ -15,7 +20,7 @@ def tela_cadastro():
 def tela_recSenha():
     return Tela_recSenha.tela_recSenha()
 
-@app.route('/TelaTeste')
+@app.route('/teste')
 def tela_teste():
     return Tela_teste.tela_teste()
 
