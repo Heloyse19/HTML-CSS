@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+}
+
+.nav-bar img{
+    height: 30px;
+    padding-right: 3px;
+    margin-left: 300px;
+}
+
+.cart-button{
+    border: none;
+    border-radius: 15px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.nav-bar{
+    justify-content: space-between;
+    display: flex;
+    left: 0px;
+    right: 0px;
+    top: 60px;
+    background-color: aqua;
+}
+
+.search{
+    width: 600px;
+    height: 30px;
+    margin-left: 200px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
