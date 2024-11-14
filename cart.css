@@ -22,8 +22,12 @@ body{
 }
 
 .space{
-  height: 900px;
   margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  gap: 10px;
+  padding: 20px;
+  column-gap: 500px;
 }
 
 .cart-button{
@@ -63,7 +67,7 @@ body{
 }
 
 input:focus{
-  outline: 2px solid #504375;
+  outline: 2px solid #8270b3;
 }
 
 input::placeholder{
@@ -72,12 +76,8 @@ input::placeholder{
 }
 
 .product{
-  display: flex;
-  align-content: space-around;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 10px;
-  padding: 20px;
-  text-align: center;
+ 
+  align-items: baseline;
 }
 
 .img{
